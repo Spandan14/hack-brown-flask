@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Spotify Reviews</h1>
+    <hr><hr>
+    {% for review in artist_reviews %}
+        <p style="font-size: 20px;">
+            <b>{{ review.author.username }}</b> is talking about <i>{{ review.artist_id }}</i>!
+        </p>
+        <span>{{ review.content }}</span><hr>
+    {% endfor %}
+
+    <hr><hr>
+    {% for review in album_reviews %}
+        <p style="font-size: 20px;">
+            <b>{{ review.author.username }}</b> is talking about <i>{{ review.album_id }}</i> by
+            <i>{{ review.artist_id }}</i>!
+        </p>
+        <span>{{ review.content }}</span><hr>
+    {% endfor %}
+
+    <hr><hr>
+    {% for review in song_reviews %}
+        <p style="font-size: 20px;">
+            <b>{{ review.author.username }}</b> is talking about <i>{{ review.song_id }}</i> by
+            <i>{{ review.artist_id }}</i> in the album
+            <i>{{ review.album_id }}</i>!
+        </p>
+        <span>{{ review.content }}</span><hr>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Spotify Reviews</title>
+      {% else %}
+      <title>Welcome to Spotify Reviews</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            <a href="/index">Home</a>
+            <a href="/login">Login</a>
+            <a href="/logout">Logout</a>
+            <a href="/review_artist">Review an Artist!</a>
+            <a href="/review_album">Review an Album!</a>
+            <a href="/review_song">Review an Song!</a>
+        </div>
+        <hr>
+        {% with flash_messages = get_flashed_messages() %}
+        {% if flash_messages %}
+        <ul>
+            {% for message in flash_messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %} {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
